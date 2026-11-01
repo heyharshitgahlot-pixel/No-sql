@@ -1,2 +1,14 @@
-﻿# Task 3: Embedded orders and aggregation
-Run `node orders-aggregation.js` after `npm install mongodb`. Each order embeds a customer snapshot and products; the pipeline unwinds products and groups units/revenue by SKU.
+# Task 03: MongoDB Orders Collection (Embedded Documents & Aggregation)
+
+## Problem Statement
+Create a MongoDB collection named `Orders` where each order contains customer information and its associated products as an embedded document/array.
+1. Insert at least five orders.
+2. Display orders of a particular customer.
+3. Update the quantity of a product.
+4. Calculate the total order amount using aggregation.
+5. Display orders above a specified amount.
+
+## How to Run
+```bash
+node orders-aggregation.js
+```

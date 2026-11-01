@@ -1,11 +1,21 @@
-﻿DEL student:101 students:active
-SET student:101:name "Asha Sharma"
-SET student:101:course BCA
-HSET student:101:profile name "Asha Sharma" course BCA semester 5 marks 86.5
-HGETALL student:101:profile
-LPUSH students:active 103 102 101
-LRANGE students:active 0 -1
-SADD courses BCA BSc
-SMEMBERS courses
-EXPIRE student:101:name 3600
-TTL student:101:name
+# Lab Sheet 2: Task 4 - Redis Key-Value Student Information System
+
+# 1. Store student ID as the key and student name as the value (Insert at least 5 students)
+SET student:101 "Asha Sharma"
+SET student:102 "Ravi Kumar"
+SET student:103 "Pooja Verma"
+SET student:104 "Amit Singh"
+SET student:105 "Neha Patel"
+
+# 2. Retrieve a student using the key
+GET student:101
+
+# 3. Update a student's value
+SET student:102 "Ravi K. Verma"
+GET student:102
+
+# 4. Delete a student
+DEL student:105
+
+# 5. Display all available keys
+KEYS student:*

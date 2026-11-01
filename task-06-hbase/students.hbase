@@ -1,12 +1,49 @@
-﻿create '"'"'Students'"'"', '"'"'personal'"'"', '"'"'academic'"'"'
-put '"'"'101'"'"', '"'"'personal:name'"'"', '"'"'Asha Sharma'"'"'
-put '"'"'101'"'"', '"'"'personal:email'"'"', '"'"'asha@example.edu'"'"'
-put '"'"'101'"'"', '"'"'academic:course'"'"', '"'"'BCA'"'"'
-put '"'"'101'"'"', '"'"'academic:semester'"'"', '"'"'5'"'"'
-put '"'"'101'"'"', '"'"'academic:marks'"'"', '"'"'86.5'"'"'
-get '"'"'101'"'"'
-scan '"'"'Students'"'"'
-put '"'"'101'"'"', '"'"'academic:marks'"'"', '"'"'90.0'"'"'
-delete '"'"'Students'"'"', '"'"'101'"'"', '"'"'personal:email'"'"'
-disable '"'"'Students'"'"'
-drop '"'"'Students'"'"'
+# Lab Sheet 2: Task 6 - Apache HBase Column Family Operations
+
+# Create table named Students with column families 'personal' and 'academic'
+create 'Students', 'personal', 'academic'
+
+# 1. Insert at least five student records
+put 'Students', '101', 'personal:name', 'Asha Sharma'
+put 'Students', '101', 'personal:email', 'asha@example.edu'
+put 'Students', '101', 'academic:course', 'BCA'
+put 'Students', '101', 'academic:semester', '5'
+put 'Students', '101', 'academic:marks', '86.5'
+
+put 'Students', '102', 'personal:name', 'Ravi Kumar'
+put 'Students', '102', 'personal:email', 'ravi@example.edu'
+put 'Students', '102', 'academic:course', 'BCA'
+put 'Students', '102', 'academic:semester', '5'
+put 'Students', '102', 'academic:marks', '78.0'
+
+put 'Students', '103', 'personal:name', 'Pooja Verma'
+put 'Students', '103', 'personal:email', 'pooja@example.edu'
+put 'Students', '103', 'academic:course', 'MCA'
+put 'Students', '103', 'academic:semester', '3'
+put 'Students', '103', 'academic:marks', '91.0'
+
+put 'Students', '104', 'personal:name', 'Amit Singh'
+put 'Students', '104', 'personal:email', 'amit@example.edu'
+put 'Students', '104', 'academic:course', 'BCA'
+put 'Students', '104', 'academic:semester', '5'
+put 'Students', '104', 'academic:marks', '69.5'
+
+put 'Students', '105', 'personal:name', 'Neha Patel'
+put 'Students', '105', 'personal:email', 'neha@example.edu'
+put 'Students', '105', 'academic:course', 'BSc CS'
+put 'Students', '105', 'academic:semester', '1'
+put 'Students', '105', 'academic:marks', '84.0'
+
+# 2. Retrieve a particular student's details (row 101)
+get 'Students', '101'
+
+# 3. Update student information (update marks for student 101)
+put 'Students', '101', 'academic:marks', '90.5'
+get 'Students', '101', 'academic:marks'
+
+# 4. Display all records
+scan 'Students'
+
+# 5. Delete a student record (delete student 105)
+deleteall 'Students', '105'
+scan 'Students'
