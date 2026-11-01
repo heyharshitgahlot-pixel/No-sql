@@ -1,0 +1,11 @@
+﻿DEL student:101 students:active
+SET student:101:name "Asha Sharma"
+SET student:101:course BCA
+HSET student:101:profile name "Asha Sharma" course BCA semester 5 marks 86.5
+HGETALL student:101:profile
+LPUSH students:active 103 102 101
+LRANGE students:active 0 -1
+SADD courses BCA BSc
+SMEMBERS courses
+EXPIRE student:101:name 3600
+TTL student:101:name

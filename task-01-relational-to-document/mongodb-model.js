@@ -1,0 +1,3 @@
+﻿const { MongoClient } = require("mongodb");
+const uri=process.env.MONGODB_URI||"mongodb://127.0.0.1:27017";
+async function main(){const c=new MongoClient(uri);try{await c.connect();const col=c.db("CollegeDB").collection("Students");const s={studentId:1,name:"Asha Sharma",email:"asha@example.edu",course:"BCA",semester:5,marks:86.5};await col.deleteOne({studentId:1});await col.insertOne(s);console.log(await col.findOne({studentId:1},{projection:{_id:0}}));console.log({mysql:"fixed columns and joins",mongodb:"flexible document and embedding",tradeoff:"constraints versus read simplicity"});}finally{await c.close()}}main().catch(e=>{console.error(e);process.exitCode=1});

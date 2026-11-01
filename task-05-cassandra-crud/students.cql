@@ -1,0 +1,11 @@
+﻿CREATE KEYSPACE IF NOT EXISTS CollegeDB WITH replication = {'"'"'class'"'"': '"'"'SimpleStrategy'"'"', '"'"'replication_factor'"'"': 1};
+USE CollegeDB;
+DROP TABLE IF EXISTS Students;
+CREATE TABLE Students (course text, student_id int, name text, semester int, marks decimal, PRIMARY KEY ((course), student_id));
+INSERT INTO Students (course,student_id,name,semester,marks) VALUES ('"'"'BCA'"'"',1,'"'"'Asha'"'"',5,86.5);
+INSERT INTO Students (course,student_id,name,semester,marks) VALUES ('"'"'BCA'"'"',2,'"'"'Ravi'"'"',5,78.0);
+INSERT INTO Students (course,student_id,name,semester,marks) VALUES ('"'"'BSc'"'"',3,'"'"'Noor'"'"',3,81.0);
+SELECT * FROM Students;
+UPDATE Students SET marks=88.0 WHERE course='"'"'BCA'"'"' AND student_id=1;
+SELECT * FROM Students WHERE course='"'"'BCA'"'"';
+DELETE FROM Students WHERE course='"'"'BSc'"'"' AND student_id=3;

@@ -1,0 +1,4 @@
+﻿services:
+  rs1: { image: mongo:7, container_name: mongo-rs1, command: [mongod,--replSet,rs0,--bind_ip_all], ports: ["27101:27017"] }
+  rs2: { image: mongo:7, container_name: mongo-rs2, command: [mongod,--replSet,rs0,--bind_ip_all], ports: ["27102:27017"] }
+  rs3: { image: mongo:7, container_name: mongo-rs3, command: [mongod,--replSet,rs0,--bind_ip_all], ports: ["27103:27017"] }
